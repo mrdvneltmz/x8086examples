@@ -1,0 +1,34 @@
+.MODEL SMALL
+.STACK 64
+
+.DATA
+ 
+DATA1	DD	2846133H
+DATA2	DD	6136F25H
+RESULT	DD	?
+
+.CODE    
+
+anaprg PROC 
+    
+        MOV AX,@DATA
+        MOV DS,AX 
+		
+		MOV SI,OFFSET DATA1
+		MOV BX,OFFSET DATA2
+		MOV DI,OFFSET RESULT
+		MOV CX,4
+		MOV AL,0
+		CLC
+		
+	BACK: 
+		MOV AL,[SI]
+		SBB AL,[BX]
+		MOV [DI],AL
+		INC SI
+		INC BX
+		INC DI
+		LOOP BACK
+		
+        HLT
+END anaprg
