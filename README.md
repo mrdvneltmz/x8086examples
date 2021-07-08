@@ -1,1 +1,1 @@
-# x8086examples
+x8086 için Assembly dilinde yazılmış çalışma kodları
